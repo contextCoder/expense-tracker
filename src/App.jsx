@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Layout from './components/Layout/Layout'
 import Header from './components/Header/Header'
 import { Routes, Route } from 'react-router-dom'
@@ -6,13 +6,14 @@ import Dashboard from './pages/Dashboard'
 import Analytics from './pages/Analytics'
 import { expenseService } from './services/expenseService'
 
-
-const STORAGE_KEY = 'expenses'
-
 const App = () => {
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState(() => {
+    const stored = expenseService.getAll()
+    return stored
+  })
   const [filterType, setFilterType] = useState('all');
   const [editingId, setEditingId] = useState(null)
+  const hasLoaded = useRef(false)
 
   const filteredExpenses =
     filterType === 'all'
@@ -20,26 +21,8 @@ const App = () => {
       : expenses.filter((item) => item.type === filterType)
 
   useEffect(() => {
-    setExpenses(expenseService.getAll())
-  }, [])
-
-  useEffect(() => {
     expenseService.saveAll(expenses)
   }, [expenses])
-
-
-  // /* Load from localStorage on first render */
-  // useEffect(() => {
-  //   const storedExpenses = localStorage.getItem(STORAGE_KEY)
-  //   if (storedExpenses) {
-  //     setExpenses(JSON.parse(storedExpenses))
-  //   }
-  // }, [])
-
-  // /* Save to localStorage whenever expenses change */
-  // useEffect(() => {
-  //   localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses))
-  // }, [expenses])
 
   const startEditHandler = (id) => {
     setEditingId(id)
@@ -91,7 +74,7 @@ const App = () => {
               />
             }
           />
-          <Route path="/analytics" element={<Analytics  expenses={expenses}/>} />
+          <Route path="/analytics" element={<Analytics expenses={expenses} />} />
         </Routes>
       </main>
     </Layout>

@@ -71,9 +71,19 @@ const AddExpense = ({ onAddExpense }) => {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="Food">Food</option>
+          <option value="Petrol">Petrol</option>
           <option value="Travel">Travel</option>
+          <option value="WIFI">WIFI</option>
+          <option value="Entertainment">Entertainment</option>
           <option value="Rent">Rent</option>
           <option value="Shopping">Shopping</option>
+          <option value="Sport">Sport</option>
+          <option value="Debt">Debt</option>
+          <option value="Dairy">Dairy</option>
+          <option value="Market">Market</option>
+          <option value="Credit">Credit</option>
+          <option value="Home">Home</option>
+          <option value="Mine">Mine</option>
           <option value="Other">Other</option>
         </select>
       </div>
