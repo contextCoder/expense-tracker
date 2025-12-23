@@ -1,0 +1,27 @@
+:root {
+  /* Colors */
+  --color-primary: #2c7be5;
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-bg: #f5f7fa;
+  --color-text: #212529;
+  --color-white: #ffffff;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Font sizes */
+  --font-sm: 0.875rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+
+  /* Layout */
+  --header-height: 60px;
+  --container-width: 1200px;
+}

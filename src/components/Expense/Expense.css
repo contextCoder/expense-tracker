@@ -1,0 +1,116 @@
+/* Section */
+.expense-section {
+  margin-top: var(--space-md);
+}
+
+/* Section title */
+.section-title {
+  margin-bottom: var(--space-md);
+  font-size: var(--font-lg);
+}
+
+/* List layout */
+.expense-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Card */
+.expense-item {
+  background-color: var(--color-white);
+  padding: var(--space-md);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left content */
+.expense-title {
+  font-weight: 500;
+}
+
+.expense-date {
+  font-size: var(--font-sm);
+  color: var(--color-secondary);
+}
+
+/* Amount */
+.expense-amount {
+  font-weight: 600;
+}
+
+/* Expense vs Income */
+.expense-item.expense {
+  border-left: 4px solid var(--color-danger);
+}
+
+.expense-item.income {
+  border-left: 4px solid var(--color-success);
+}
+
+.expense-section p {
+  color: var(--color-secondary);
+}
+
+.expense-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.delete-btn {
+  background: none;
+  color: var(--color-danger);
+  font-size: var(--font-md);
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  opacity: 0.7;
+}
+
+.expense-item.edit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.edit-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.month-group {
+  margin-bottom: var(--space-lg);
+}
+
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.month-summary {
+  display: flex;
+  gap: var(--space-md);
+  font-weight: 600;
+}
+
+.month-summary .income {
+  color: var(--color-success);
+}
+
+.month-summary .expense {
+  color: var(--color-danger);
+}
+
+@media (min-width: 1024px) {
+  .expense-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}

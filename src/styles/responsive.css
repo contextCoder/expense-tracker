@@ -1,0 +1,15 @@
+/* Mobile first (default) */
+
+/* Tablet */
+@media (min-width: 768px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}

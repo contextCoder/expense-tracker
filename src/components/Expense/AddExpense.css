@@ -1,0 +1,51 @@
+.expense-form {
+  background-color: var(--color-white);
+  padding: var(--space-md);
+  border-radius: 8px;
+  margin-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+label {
+  font-size: var(--font-sm);
+  font-weight: 500;
+}
+
+input,
+select {
+  padding: var(--space-sm);
+  font-size: var(--font-md);
+  border-radius: 4px;
+  border: 1px solid var(--color-secondary);
+}
+
+/* Button */
+.btn-primary {
+  padding: var(--space-sm);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-md);
+  border-radius: 4px;
+}
+
+/* Disabled state */
+.btn-primary:disabled {
+  background-color: var(--color-secondary);
+  cursor: not-allowed;
+}
+
+@media (min-width: 1024px) {
+  .expense-form {
+    max-width: 500px;
+  }
+}
+
