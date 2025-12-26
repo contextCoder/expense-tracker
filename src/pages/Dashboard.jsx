@@ -2,6 +2,7 @@ import Summary from '../components/Expense/Summary'
 import Filter from '../components/Expense/Filter'
 import AddExpense from '../components/Expense/AddExpense'
 import ExpenseList from '../components/Expense/ExpenseList'
+import Analytics from './Analytics'
 
 const Dashboard = ({
   expenses,
@@ -25,7 +26,6 @@ const Dashboard = ({
       />
 
       <AddExpense onAddExpense={onAddExpense} />
-
       <ExpenseList
         items={filteredExpenses}
         onDeleteExpense={onDeleteExpense}

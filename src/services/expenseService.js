@@ -1,15 +1,11 @@
 const STORAGE_KEY = 'expenses'
-const API_URL = 'http://localhost:5000/api/expenses'
-
-// Example future usage
-// return fetch(API_URL).then(res => res.json())
-
-/* Temporary: localStorage-based implementation */
+import api from '../api/axios';
 
 export const expenseService = {
-  getAll() {
-    const data = localStorage.getItem(STORAGE_KEY)
-    return data ? JSON.parse(data) : []
+  async getAll() {
+    const response = await api.get('/getExpenses');
+    console.log(response);
+    return response.data ? response.data : []
   },
 
   saveAll(expenses) {

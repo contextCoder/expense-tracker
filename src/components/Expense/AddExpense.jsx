@@ -36,6 +36,15 @@ const AddExpense = ({ onAddExpense }) => {
       <h2 className="section-title">Add Transaction</h2>
 
       <div className="form-group">
+        <label htmlFor="amount">Amount</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="Enter Total Amount"
+        />
+      </div>
+      <div className="form-group">
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -46,48 +55,52 @@ const AddExpense = ({ onAddExpense }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="amount">Amount</label>
-        <input
-          type="number"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          placeholder="e.g. 1200"
+        <label htmlFor="title">Description</label>
+        <textarea
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Enter Description"
         />
       </div>
 
-      <div className="form-group">
-        <label>Type</label>
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="expense">Expense</option>
-          <option value="income">Income</option>
-        </select>
-      </div>
+      <div className="form-row">
+        <div className="form-group">
+          <label>Type</label>
+          <select value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
 
-      <div className="form-group">
-        <label htmlFor="category">Category</label>
-        <select
-          id="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="Food">Food</option>
-          <option value="Petrol">Petrol</option>
-          <option value="Travel">Travel</option>
-          <option value="WIFI">WIFI</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Rent">Rent</option>
-          <option value="Shopping">Shopping</option>
-          <option value="Sport">Sport</option>
-          <option value="Debt">Debt</option>
-          <option value="Dairy">Dairy</option>
-          <option value="Market">Market</option>
-          <option value="Credit">Credit</option>
-          <option value="Home">Home</option>
-          <option value="Mine">Mine</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
+        <div className="form-group">
+          <label htmlFor="category">Category</label>
+          <select
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="Mine">Mine</option>
+            <option value="Market">Market</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Sport">Sport</option>
+            <option value="Health">Health</option>
+            <option value="Food">Food</option>
+            <option value="Salary">Salary</option>
+            <option value="Travel">Travel</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Debt">Debt</option>
+            <option value="Credit">Credit</option>
+            <option value="Home">Home</option>
+            <option value="WIFI">WIFI</option>
+            <option value="Rent">Rent</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
+      </div>
 
       <button
         className="btn-primary"

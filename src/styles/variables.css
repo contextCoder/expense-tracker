@@ -3,10 +3,13 @@
   --color-primary: #2c7be5;
   --color-secondary: #6c757d;
   --color-success: #28a745;
+  --color-success-light: #64d37d;
+  --color-danger-light: #cf6a74;
   --color-danger: #dc3545;
   --color-bg: #f5f7fa;
   --color-text: #212529;
   --color-white: #ffffff;
+  --color-wheat: #f5deb3;
 
   /* Spacing */
   --space-xs: 4px;
