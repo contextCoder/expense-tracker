@@ -13,7 +13,9 @@ const ExpenseList = ({
     return <p>No transactions yet.</p>
   }
 
-  const groupedExpenses = items.reduce((groups, item) => {
+  const sortedItems = [...items].sort((a, b) => new Date(b.date) - new Date(a.date))
+
+  const groupedExpenses = sortedItems.reduce((groups, item) => {
     const date = new Date(item.date)
     const key = `${date.getFullYear()}-${date.getMonth()}`
 
