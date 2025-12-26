@@ -17,6 +17,8 @@ const ExpenseItem = ({
   const [editAmount, setEditAmount] = useState(amount)
   const [editType, setEditType] = useState(type)
 
+  const newdata = new Date(date);
+
   const saveHandler = () => {
     onUpdate({
       id,
@@ -61,7 +63,7 @@ const ExpenseItem = ({
     <div className={`expense-item ${type}`}>
       <div className="expense-left">
         <p className="expense-title">{title}</p>
-        <span className="expense-date">{date}</span>
+        <span className="expense-date">{newdata.toLocaleDateString()}</span>
       </div>
 
       <div className="expense-right">

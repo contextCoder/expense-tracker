@@ -42,7 +42,6 @@ const App = () => {
   const updateExpenseHandler = async (updatedExpense) => {
     try {
       const res = await api.put(`/updateExpense/${updatedExpense.id}`, updatedExpense);
-      console.log("res------", res)
 
       setExpenses((prev) =>
         prev.map((item) =>
@@ -58,7 +57,6 @@ const App = () => {
   const addExpenseHandler = async (expense) => {
     try {
       const res = await api.post("/addExpense", expense);
-      console.log("res------", res)
       setExpenses((prev) => [expense, ...prev])
     } catch (error) {
       console.error("Error adding expense:", error);
@@ -71,7 +69,6 @@ const App = () => {
       if (!confirmed) return
 
       const res = await api.delete(`/deleteExpense/${id}`);
-      console.log("res------", res)
 
       setExpenses((prev) => prev.filter((item) => item.id !== id))
     } catch (error) {

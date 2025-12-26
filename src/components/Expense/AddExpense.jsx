@@ -3,9 +3,11 @@ import './AddExpense.css'
 
 const AddExpense = ({ onAddExpense }) => {
   const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
   const [type, setType] = useState('expense')
   const [category, setCategory] = useState('Food')
+  const [date, setDate] = useState(new Date().toLocaleDateString());
 
 
   const isFormValid = title.trim() !== '' && amount > 0
@@ -20,7 +22,7 @@ const AddExpense = ({ onAddExpense }) => {
       amount: Number(amount),
       type,
       category,
-      date: new Date().toLocaleDateString(),
+      date: new Date(date).toISOString(),
     }
 
     onAddExpense(expenseData)
@@ -29,6 +31,8 @@ const AddExpense = ({ onAddExpense }) => {
     setAmount('')
     setType('expense')
     setCategory('Food')
+    setDate('')
+    setDescription('')
   }
 
   return (
@@ -58,8 +62,8 @@ const AddExpense = ({ onAddExpense }) => {
         <label htmlFor="title">Description</label>
         <textarea
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           placeholder="Enter Description"
         />
       </div>
@@ -99,7 +103,14 @@ const AddExpense = ({ onAddExpense }) => {
             <option value="Other">Other</option>
           </select>
         </div>
-
+      </div>
+      <div className="form-group">
+        <label htmlFor="date">Date</label>
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+        />
       </div>
 
       <button
