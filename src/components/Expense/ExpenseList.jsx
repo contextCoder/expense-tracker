@@ -10,7 +10,7 @@ const ExpenseList = ({
   editingId,
 }) => {
   if (items.length === 0) {
-    return <p>No transactions yet.</p>
+    return <p style={{ "marginTop":"17px"}} className='expense-item expense'>No transactions yet.</p>
   }
 
   const sortedItems = [...items].sort((a, b) => new Date(b.date) - new Date(a.date))
