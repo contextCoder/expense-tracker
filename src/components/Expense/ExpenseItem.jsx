@@ -72,6 +72,7 @@ const ExpenseItem = ({
         </span>
 
         <button
+          className='actionButton'
           aria-label="Edit transaction"
           onClick={() => onEditStart(id)}
         >
@@ -79,6 +80,7 @@ const ExpenseItem = ({
         </button>
 
         <button
+          className='actionButton'
           aria-label="Delete transaction"
           onClick={() => onDelete(id)}
         >

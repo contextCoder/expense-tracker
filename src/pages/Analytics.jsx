@@ -28,6 +28,8 @@ const getColor = (index) => `hsl(${index * 60}, 70%, 50%)`
 
 const Analytics = ({ expenses }) => {
   const [selectedMonth, setSelectedMonth] = useState('')
+  const [hovered, setHovered] = useState(null)
+  const [hoverPos, setHoverPos] = useState({ x: 0, y: 0 })
 
   /* ---------- MONTHLY TOTALS ---------- */
 
@@ -127,6 +129,8 @@ const Analytics = ({ expenses }) => {
               endAngle
             )
 
+            const percent = totalExpense ? ((item.total / totalExpense) * 100).toFixed(1) : 0
+
             startAngle = endAngle
 
             return (
@@ -135,10 +139,16 @@ const Analytics = ({ expenses }) => {
                 d={path}
                 fill="none"
                 stroke={getColor(index)}
-                strokeWidth={strokeWidth}
-                className="donut-slice"
+                strokeWidth={hovered && hovered.category === item.category ? strokeWidth + 8 : strokeWidth}
+                className={`donut-slice ${hovered && hovered.category === item.category ? 'active' : ''}`}
                 tabIndex="0"
                 aria-label={`${item.category}: ₹${item.total}`}
+                onMouseEnter={(e) => {
+                  setHovered({ category: item.category, total: item.total, percent, color: getColor(index) })
+                  setHoverPos({ x: e.clientX, y: e.clientY })
+                }}
+                onMouseMove={(e) => setHoverPos({ x: e.clientX, y: e.clientY })}
+                onMouseLeave={() => setHovered(null)}
               />
             )
           })
@@ -164,6 +174,23 @@ const Analytics = ({ expenses }) => {
           ₹{totalExpense}
         </text>
       </svg>
+
+      {hovered && (
+        <div
+          className="analytics-tooltip"
+          style={{ left: hoverPos.x + 12, top: hoverPos.y + 12 }}
+        >
+          <div
+            className="tooltip-swatch"
+            style={{ backgroundColor: hovered.color }}
+            aria-hidden="true"
+          />
+          <div className="tooltip-body">
+            <div className="tooltip-title">{hovered.category}</div>
+            <div className="tooltip-meta">{hovered.percent}% • ₹{hovered.total}</div>
+          </div>
+        </div>
+      )}
 
       {/* Legend */}
       <ul className="donut-legend">

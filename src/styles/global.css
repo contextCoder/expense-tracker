@@ -30,7 +30,6 @@ button {
 
 main {
   flex: 1;
-  padding: var(--space-md);
 }
 
 :focus-visible {
@@ -41,7 +40,5 @@ main {
 /* Desktop spacing */
 @media (min-width: 1024px) {
   main {
-    max-width: var(--container-width);
-    padding: calc(var(--space-lg) + var(--space-md));
   }
 }

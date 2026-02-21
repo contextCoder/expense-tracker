@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: var(--space-sm);
   margin-top: var(--space-md);
+  width: 100%;
 }
 
 /* Card */
@@ -46,13 +47,13 @@
   box-shadow: 4px 3px 5px rgba(31, 28, 28, 0.788);
 }
 
-/* Desktop layout */
-@media (min-width: 1024px) {
-  .summary {
+/* keep summary cards stacked by default; allow row only when explicitly needed */
+@media (min-width: 1200px) {
+  .summary.row {
     flex-direction: row;
   }
 
-  .summary-card {
+  .summary.row .summary-card {
     flex: 1;
   }
 }

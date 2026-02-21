@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Analytics from './pages/Analytics'
+import Landing from './components/Landing/Landing'
 import { expenseService } from './services/expenseService'
 import api from "./api/axios";
 
@@ -81,23 +82,8 @@ const App = () => {
       <Header />
       <main>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Dashboard
-                expenses={expenses}
-                filteredExpenses={filteredExpenses}
-                filterType={filterType}
-                onFilterChange={setFilterType}
-                onAddExpense={addExpenseHandler}
-                onDeleteExpense={deleteExpenseHandler}
-                onEditStart={startEditHandler}
-                onEditCancel={cancelEditHandler}
-                onUpdateExpense={updateExpenseHandler}
-                editingId={editingId}
-              />
-            }
-          />
+          <Route path="/" element={<Landing expenses={expenses} />} />
+          <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/analytics" element={<Analytics expenses={expenses} />} />
         </Routes>
       </main>

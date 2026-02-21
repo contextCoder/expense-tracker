@@ -16,6 +16,21 @@
   gap: var(--space-sm);
 }
 
+/* When used inside a month accordion, show compact two-column list */
+.month-body .expense-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.actionButton {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
 /* Card */
 .expense-item {
   background-color: var(--color-white);
@@ -84,6 +99,17 @@
   flex-direction: column;
   gap: var(--space-sm);
 }
+
+/* compact style when inside month-body */
+.month-body .expense-item{
+  padding:8px 10px;
+  font-size: 13px;
+  border-radius:8px;
+}
+
+.month-body .expense-title{font-size:13px}
+.month-body .expense-date{font-size:12px}
+.month-body .expense-amount{font-weight:700}
 
 .edit-actions {
   display: flex;
